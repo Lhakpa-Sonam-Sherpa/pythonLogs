@@ -34,20 +34,21 @@ def fifo_page_replacement(pages, capacity):
     page_falults = 0
 
     for page in pages: # a requested page from list of pages
+        status = "HIT "
         if page not in memory: # if its a Miss:
             page_falults += 1
-
+            status = "MISS"
             if len(memory) == capacity:
                 memory.pop(0)
 
             memory.append(page)
         
-        print(f"Request {page}: Memory {memory}")
+        print(f"Request {page}: ({status}) Memory {memory}")
     
     return page_falults
 
 page_list = [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5]
-max_memory_capacity = 2
+max_memory_capacity = 3
 
 faults = fifo_page_replacement(page_list, max_memory_capacity)
 print(f"Total page faults : {faults}")

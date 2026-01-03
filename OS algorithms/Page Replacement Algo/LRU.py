@@ -11,7 +11,7 @@ def lru_page_replacement(pages, capacity):
             # Move to end (most recently used)
             memory.remove(page)
             memory.append(page)
-            status = "HIT"
+            status = "HIT "
         else:  # Page MISS
             page_faults += 1
             status = "MISS"
@@ -23,7 +23,7 @@ def lru_page_replacement(pages, capacity):
                 memory.pop(0)
                 memory.append(page)
         
-        print(f"Request {page}: Memory {memory} ({status})")
+        print(f"Request {page}: ({status}) Memory {memory}")
 
     return page_faults
 
