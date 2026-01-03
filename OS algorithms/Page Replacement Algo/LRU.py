@@ -1,6 +1,3 @@
-pages = [1, 2, 3, 4, 5]
-
-
 def lru_page_replacement(pages, capacity):
     """
     :param pages: list of page requests
